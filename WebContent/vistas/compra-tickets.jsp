@@ -130,21 +130,23 @@
                         </div>
                     </div>
                 </div>
-                <div id="contenido"></div>
-               
-            <form action="FrontController?accion=insertar" method="post">
-                <div class="d-flex justify-content-between container mt-3 " >
-
+                
+           
+           <form action="FrontController?accion=comprarTicket" method="post">
+           
+                <div class="d-flex justify-content-between container mt-3 ">
+                
+                
                     <div class="w-50 pe-1 ">
-                        <input type="text" class="form-control" id="exampleFormControlInput1" name="nombre" placeholder="Nombre">
+                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="nombre" required>
                     </div>
                     <div class="w-50 ps-1 ">
-                        <input type="text" class="form-control" id="exampleFormControlInput1" name="apellido" placeholder="Apellido">
+                        <input type="text" class="form-control" id="apellido" name="apellido" placeholder="apellido" required>
                     </div>
                 </div>
                 <div class=" container  ">
-                    <input type="email" class="form-control mt-3 mb-3" id="exampleFormControlInput1" name="mail"
-                        placeholder="Correo">
+                    <input type="email" class="form-control mt-3 mb-3" id="mail" name="mail"
+                        placeholder="Correo" required>
 
                 </div>
                 <div class="d-flex justify-content-between container  ">
@@ -152,12 +154,12 @@
                     <div class="w-50 pe-1 ">
                         <p class="fs-5">Cantidad</p>
                         <input type="number" class="form-control mt-3 mb-3" id="Cantidad" name="cant"
-                        placeholder="Cantidad" min="1" >
+                        placeholder="Cantidad" min="1" required>
                     </div>
-				
+
                     <div class="w-50 ps-1 ">
                         <p class="fs-5">Categoria</p>
-                        <select class="form-select" aria-label="Default select example" id="selectDescuentos" name="categoria">
+                        <select class="form-select" aria-label="Default select example" id="selectDescuentos" name="categoria" required>
                             <option value="80" >Estudiante</option>
                             <option value="50" >Trainee</option>
                             <option value="15" >Junior</option>
@@ -182,15 +184,15 @@
                             </button>
                         </div>
                         <div class=" col mt-2 mb-4" >
-                           <button  class="btn h-7 bg-verde color-blanco w-100" type="submit">
+                           <button  class="btn h-7 bg-verde color-blanco w-100" type="submit" >
                                 comprar
                            </button>
                         </div>
-                       </div>
                     </div>
                 </div>
-          	</form>
+            </form>
            </div>
+          
         
 
     </main>

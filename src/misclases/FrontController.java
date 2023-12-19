@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
+
+
+
  
 
 @WebServlet("/FrontController")
@@ -38,42 +41,42 @@ public class FrontController extends HttpServlet {
 	        if (accion == null || accion.isEmpty()) {
 	            dispatcher = request.getRequestDispatcher("vistas/conferencia.jsp");
 	        } 
+	        
 	        else if (accion.equals("comprar")) {
 	            dispatcher = request.getRequestDispatcher("vistas/compra-tickets.jsp");
 	        } 
+	        
 	        else if (accion.equals("backoffice")) {
 	            dispatcher = request.getRequestDispatcher("vistas/backoffice.jsp");
 	        } 
+	        
 	        else if (accion.equals("eliminar")) {
 	            int id = Integer.parseInt(request.getParameter("id"));
 	            ticketDAO.eliminar(id);
 	            dispatcher = request.getRequestDispatcher("vistas/backoffice.jsp");
 	        } 
+	        
 	        else if (accion.equals("volver")) {
 	            dispatcher = request.getRequestDispatcher("vistas/conferencia.jsp");
 	        } 
-	        else if (accion.equals("comprar-confirmar")) {
-	            String nombre = request.getParameter("nombre");
-	            String apellido = request.getParameter("apellido");
-	            String mail = request.getParameter("mail");
-	            int cant = Integer.parseInt(request.getParameter("cant"));
-	            int opcionSeleccionada = Integer.parseInt(request.getParameter("categoria"));
-	            float total = 0;
+	        
+	        else if (accion.equals("comprarTicket")) 
+	        {
+	        	String nombre=request.getParameter("nombre");
+				String apellido=request.getParameter("apellido");
+				String mail=request.getParameter("mail");			
+				int cant=Integer.parseInt(request.getParameter("cant"));			
+				int categoria=Integer.parseInt(request.getParameter("categoria"));
+				float total;
 
-	            // Lógica para procesar la compra y calcular el total
-	            // ...
+	            
 
-	            // Puedes almacenar los resultados en la solicitud para usarlos en la vista
-	            request.setAttribute("nombre", nombre);
-	            request.setAttribute("apellido", apellido);
-	            request.setAttribute("mail", mail);
-	            request.setAttribute("cant", cant);
-	            request.setAttribute("categoria", opcionSeleccionada);
-	            request.setAttribute("total", total);
-
+				Tickets ticket=new Tickets(0,nombre,apellido,mail,cant,categoria,0);
+				ticketDAO.insertarTicket(ticket);
 	            dispatcher = request.getRequestDispatcher("vistas/conferencia.jsp");
 	        }
-
+	        
+	        
 	        dispatcher.forward(request, response);
 	    }
 
